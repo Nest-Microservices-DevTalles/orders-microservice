@@ -4,7 +4,7 @@ steps:
       [
         "build",
         "-t",
-        " us-central1-docker.pkg.dev/fourth-epigram-417016/orders-ms/production",
+        "us-central1-docker.pkg.dev/fourth-epigram-417016/orders-ms/production",
         "-f",
         "dockerfile.prod",
         "--platform=linux/amd64",
@@ -14,5 +14,5 @@ steps:
     args:
       [
         "push",
-        " us-central1-docker.pkg.dev/fourth-epigram-417016/orders-ms/production",
+        "us-central1-docker.pkg.dev/fourth-epigram-417016/orders-ms/production",
       ]
