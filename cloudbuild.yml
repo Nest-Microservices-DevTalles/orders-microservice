@@ -8,7 +8,8 @@ steps:
       '-f',
       'dockerfile.prod',
       '--platform=linux/amd64',
-      '--build-arg=ORDERS_DATABASE_URL=$$DATABASE_URL',
+      '--build-arg',
+      'ORDERS_DATABASE_URL=postgres://holamundo',
       '.',
     ]
   secretEnv: ['DATABASE_URL']
