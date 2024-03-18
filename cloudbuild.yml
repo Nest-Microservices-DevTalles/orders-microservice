@@ -13,10 +13,10 @@ steps:
         ".",
       ]
     secretEnv: ['DATABASE_URL']
-  availableSecrets:
-    secretManager:
-    - versionName: projects/367390259998/secrets/orders_database_url/1
-      env: 'DATABASE_URL'
+    availableSecrets:
+      secretManager:
+      - versionName: projects/367390259998/secrets/orders_database_url/1
+        env: 'DATABASE_URL'
 
 
   - name: "gcr.io/cloud-builders/docker"
