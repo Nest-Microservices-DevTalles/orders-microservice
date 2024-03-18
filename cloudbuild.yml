@@ -1,4 +1,14 @@
 steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "secrets"
+    args:
+      [
+        "versions",
+        "access",
+        "latest",
+        "--secret=orders_database_url", # <--- el secreto que necesito
+      ]
+    id: "get-secret"
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -8,6 +18,8 @@ steps:
         "-f",
         "dockerfile.prod",
         "--platform=linux/amd64",
+        "--build-arg",
+        "DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url)",
         ".",
       ]
   - name: "gcr.io/cloud-builders/docker"
