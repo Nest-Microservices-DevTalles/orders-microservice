@@ -9,10 +9,14 @@ steps:
       'dockerfile.prod',
       '--platform=linux/amd64',
       '--build-arg',
-      'ORDERS_DATABASE_URL=$DATABASE_URL',
+      'ORDERS_DATABASE_URL=$$DATABASE_URL',
       '.',
     ]
   secretEnv: ['DATABASE_URL']
+availableSecrets:
+  secretManager:
+  - versionName: projects/367390259998/secrets/orders_database_url/versions/1
+    env: 'DATABASE_URL'
 
 - name: 'gcr.io/cloud-builders/docker'
   args:
@@ -20,8 +24,3 @@ steps:
       'push',
       'northamerica-northeast1-docker.pkg.dev/tienda-microservices/image-registry/orders-ms',
     ]
-
-availableSecrets:
-  secretManager:
-  - versionName: projects/367390259998/secrets/orders_database_url/versions/1
-    env: 'DATABASE_URL'
