@@ -1,13 +1,13 @@
 steps:
   - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "secrets"
+    entrypoint: "bash"
     args:
       [
-        "versions",
-        "access",
-        "latest",
-        "--secret=orders_database_url", # <--- el secreto que necesito
+        "-c",
+        "echo DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url) >> .env",
       ]
+      
+    id: "get-secret"
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
