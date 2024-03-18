@@ -22,8 +22,11 @@ steps:
   secretEnv: ['DATABASE_URL']
 
 - name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
   args:
     [
+      '-c',
+      'docker',
       'push',
       'northamerica-northeast1-docker.pkg.dev/tienda-microservices/image-registry/orders-ms',
     ]
