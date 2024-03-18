@@ -18,7 +18,7 @@ ARG ORDERS_DATABASE_URL
 ENV DATABASE_URL=$ORDERS_DATABASE_URL
 
 # Imprimir el arg para ver el valor recibido
-RUN echo "database_url :: $ORDERS_DATABASE_URL";
+RUN echo "database_url ::: $ORDERS_DATABASE_URL";
 
 WORKDIR /usr/src/app
 
