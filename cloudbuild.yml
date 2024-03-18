@@ -3,7 +3,7 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - 'echo $DATABASE_URL'
+  - 'echo $$DATABASE_URL'
 # - name: 'gcr.io/cloud-builders/docker'
 #   args:
 #     [
