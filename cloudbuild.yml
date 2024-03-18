@@ -21,12 +21,12 @@ steps:
     ]
   secretEnv: ['DATABASE_URL']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args:
-#     [
-#       'push',
-#       'northamerica-northeast1-docker.pkg.dev/tienda-microservices/image-registry/orders-ms',
-#     ]
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    [
+      'push',
+      'northamerica-northeast1-docker.pkg.dev/tienda-microservices/image-registry/orders-ms',
+    ]
 
 availableSecrets:
   secretManager:
