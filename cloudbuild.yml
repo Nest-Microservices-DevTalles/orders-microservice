@@ -7,7 +7,6 @@ steps:
 # # - name: 'gcr.io/cloud-builders/docker'
   args:
     [
-      '-c',
       'build',
       '-t',
       'northamerica-northeast1-docker.pkg.dev/tienda-microservices/image-registry/orders-ms',
