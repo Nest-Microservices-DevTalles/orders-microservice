@@ -19,7 +19,6 @@ steps:
   secretEnv: ['DATABASE_URL']
 
 - name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
   args:
     [
       'push',
