@@ -1,13 +1,4 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
-    args:
-      [
-        "-c",
-        "echo DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url) >> .env",
-      ]
-      
-    id: "get-secret"
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -18,7 +9,7 @@ steps:
         "dockerfile.prod",
         "--platform=linux/amd64",
         "--build-arg",
-        "DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url)",
+        "ORDERS_DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url)",
         ".",
       ]
   - name: "gcr.io/cloud-builders/docker"
