@@ -9,7 +9,7 @@ steps:
       'dockerfile.prod',
       '--platform=linux/amd64',
       '--build-arg',
-      'ORDERS_DATABASE_URL=${DATABASE_URL}',
+      'ORDERS_DATABASE_URL=$(gcloud secrets versions access latest --secret=orders_database_url)',
       '.',
     ]
   secretEnv: ['DATABASE_URL']
